@@ -91,6 +91,8 @@ def getIdName(wcf, Id=None, roomId=None, retry=0, max_retries=3):
         name = name_list[0]['NickName']
 
         if '@chatroom' not in Id:
+            if name:
+                return name
             nickName = wcf.get_alias_in_chatroom(Id, roomId)
             if not nickName:
                 return Id
